@@ -9,8 +9,8 @@ public class CleverParkingboy extends ParkingBoy{
     @Override
     public Ticket parkCar(Car car, List<ParkingLot> parkingLots) {
         Ticket ticket = new Ticket(car);
-        List<ParkingLot> pl = parkingLots.stream().sorted(Comparator.comparing(lot -> lot.getMaxCapacity() - lot.getCars().size())).collect(Collectors.toList());
-        pl.get(parkingLots.size()-1).addCar(car,ticket);
+        List<ParkingLot> parkingLot = parkingLots.stream().sorted(Comparator.comparing(lot -> lot.getMaxCapacity() - lot.getCars().size())).collect(Collectors.toList());
+        parkingLot.get(parkingLots.size()-1).addCar(car,ticket);
         return  ticket;
     }
 
