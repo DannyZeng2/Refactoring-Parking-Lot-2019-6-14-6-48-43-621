@@ -20,8 +20,8 @@ public class ErrorMessageTest {
         parkingLot.addCar(car1,ticket1);
 
         //Then
-        Assertions.assertEquals(null,parkingBoy.returnCar(wrongTicket,parkingLot)); // wrong ticket
-        Assertions.assertEquals(null,parkingBoy.returnCar(null,parkingLot)); // no ticket
+        Assertions.assertEquals(null,parkingBoy.fetchCar(wrongTicket,parkingLot)); // wrong ticket
+        Assertions.assertEquals(null,parkingBoy.fetchCar(null,parkingLot)); // no ticket
 
     }
 
@@ -37,8 +37,8 @@ public class ErrorMessageTest {
         Ticket ticket1 = parkingBoy.parkCar(car1,parkingLot);
         Ticket ticket2 = parkingBoy.parkCar(car2,parkingLot);
 
-        Car returnCar1 = parkingBoy.returnCar(ticket1,parkingLot); //ticket1 has been used!!!
-        Car returnCar2 = parkingBoy.returnCar(ticket1,parkingLot);
+        Car returnCar1 = parkingBoy.fetchCar(ticket1,parkingLot); //ticket1 has been used!!!
+        Car returnCar2 = parkingBoy.fetchCar(ticket1,parkingLot);
 
         //Then
         Assertions.assertEquals(car1,returnCar1);
@@ -78,7 +78,7 @@ public class ErrorMessageTest {
 
         //When
         parkingBoy.parkCar(car,parkingLot);
-        parkingBoy.returnCar(wrongTicket,parkingLot);
+        parkingBoy.fetchCar(wrongTicket,parkingLot);
 
         //Then
         Assertions.assertEquals("Unrecognized parking ticket.",parkingLot.getMessage()); // wrong ticket
@@ -95,7 +95,7 @@ public class ErrorMessageTest {
         //When
         Ticket ticket = parkingBoy.parkCar(car,parkingLot);
        //parkingLot.addCar(car1,ticket1);
-        parkingBoy.returnCar(null,parkingLot);
+        parkingBoy.fetchCar(null,parkingLot);
 
         //Then
         Assertions.assertEquals("Please provide your parking ticket.",parkingLot.getMessage()); // no ticket

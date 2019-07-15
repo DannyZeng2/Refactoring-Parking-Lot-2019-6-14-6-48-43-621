@@ -52,7 +52,7 @@ public class ManagerTest {
 
         //When
         Ticket ticket1 = manager.parkCar(car, parkingLot1);
-        Car returnCar1 = manager.returnCar(ticket1, parkingLot1); //ticket1 has been used!!!
+        Car returnCar1 = manager.fetchCar(ticket1, parkingLot1); //ticket1 has been used!!!
         //Then
         Assertions.assertEquals(car, returnCar1);
     }
@@ -68,7 +68,7 @@ public class ManagerTest {
 
         //When
         Ticket ticket = manager1.parkCar(car, parkingLot1);
-        Car returnCar = manager1.returnCar(ticket, parkingLot2);
+        Car returnCar = manager1.fetchCar(ticket, parkingLot2);
         //Then
         Assertions.assertEquals(null, returnCar);
     }

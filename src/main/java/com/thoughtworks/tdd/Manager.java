@@ -21,7 +21,6 @@ public class Manager extends ParkingBoy{
 
     }
 
-
     @Override
     public Ticket parkCar(Car car, List<ParkingLot> parkingLots) {
         return null;

@@ -32,7 +32,7 @@ public class ParkingBoyTest {
         parkingLot.addCar(car,ticket);
 
         //Then
-        Assertions.assertNotNull(parkingBoy.returnCar(ticket,parkingLot));
+        Assertions.assertNotNull(parkingBoy.fetchCar(ticket,parkingLot));
     }
 
     @Test
@@ -51,8 +51,8 @@ public class ParkingBoyTest {
         parkingLot.addCar(car2,ticket2);
 
         //Then
-        Assertions.assertEquals(car1,parkingBoy.returnCar(ticket1,parkingLot));
-        Assertions.assertEquals(car2,parkingBoy.returnCar(ticket2,parkingLot));
+        Assertions.assertEquals(car1,parkingBoy.fetchCar(ticket1,parkingLot));
+        Assertions.assertEquals(car2,parkingBoy.fetchCar(ticket2,parkingLot));
 
     }
 
