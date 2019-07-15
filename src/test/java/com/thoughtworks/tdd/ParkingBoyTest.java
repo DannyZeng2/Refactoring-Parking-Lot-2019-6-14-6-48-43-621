@@ -12,12 +12,48 @@ public class ParkingBoyTest {
     public void should_park_a_car_return_get_a_ticket() {  //预估：5min 实际：6min
         //Given
         Car car  = new Car();
+
         ParkingBoy parkingBoy = new ParkingBoy();
         ParkingLot parkingLot = new ParkingLot(2);
         //When
         Ticket ticket = parkingBoy.parkCar(car,parkingLot);
         //Then
         Assertions.assertNotNull(ticket);
+    }
+
+    @Test
+    public void should_get_a_ticket_and_return_a_car() { //预估：5min 实际：5min
+        //Given
+        Car car = new Car();
+        Ticket ticket = new Ticket(car);
+        ParkingBoy parkingBoy = new ParkingBoy();
+        //When
+        ParkingLot parkingLot = new ParkingLot(2);
+        parkingLot.addCar(car,ticket);
+
+        //Then
+        Assertions.assertNotNull(parkingBoy.returnCar(ticket,parkingLot));
+    }
+
+    @Test
+    public void should_return_cars_with_correspond_ticket() { //预估：10min 实际：10min
+        //Given
+        Car car1  = new Car();
+        Car car2  = new Car();
+
+        Ticket ticket1 = new Ticket(car1);
+        Ticket ticket2 = new Ticket(car2);
+
+        //When
+        ParkingBoy parkingBoy = new ParkingBoy();
+        ParkingLot parkingLot = new ParkingLot(2);
+        parkingLot.addCar(car1,ticket1);
+        parkingLot.addCar(car2,ticket2);
+
+        //Then
+        Assertions.assertEquals(car1,parkingBoy.returnCar(ticket1,parkingLot));
+        Assertions.assertEquals(car2,parkingBoy.returnCar(ticket2,parkingLot));
+
     }
 
     @Test
