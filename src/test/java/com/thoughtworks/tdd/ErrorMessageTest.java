@@ -20,8 +20,8 @@ public class ErrorMessageTest {
         parkingLot.addCar(car1,ticket1);
 
         //Then
-        Assertions.assertEquals(null,parkingBoy.fetchCar(wrongTicket,parkingLot)); // wrong ticket
-        Assertions.assertEquals(null,parkingBoy.fetchCar(null,parkingLot)); // no ticket
+        Assertions.assertEquals(null,parkingBoy.fetchCar(wrongTicket,parkingLot));
+        Assertions.assertEquals(null,parkingBoy.fetchCar(null,parkingLot));
 
     }
 
@@ -37,7 +37,7 @@ public class ErrorMessageTest {
         Ticket ticket1 = parkingBoy.parkCar(car1,parkingLot);
         Ticket ticket2 = parkingBoy.parkCar(car2,parkingLot);
 
-        Car returnCar1 = parkingBoy.fetchCar(ticket1,parkingLot); //ticket1 has been used!!!
+        Car returnCar1 = parkingBoy.fetchCar(ticket1,parkingLot);
         Car returnCar2 = parkingBoy.fetchCar(ticket1,parkingLot);
 
         //Then
@@ -81,7 +81,7 @@ public class ErrorMessageTest {
         parkingBoy.fetchCar(wrongTicket,parkingLot);
 
         //Then
-        Assertions.assertEquals("Unrecognized parking ticket.",parkingLot.getMessage()); // wrong ticket
+        Assertions.assertEquals("Unrecognized parking ticket.",parkingLot.getMessage());
     }
 
     @Test
@@ -98,7 +98,7 @@ public class ErrorMessageTest {
         parkingBoy.fetchCar(null,parkingLot);
 
         //Then
-        Assertions.assertEquals("Please provide your parking ticket.",parkingLot.getMessage()); // no ticket
+        Assertions.assertEquals("Please provide your parking ticket.",parkingLot.getMessage());
     }
 
 }

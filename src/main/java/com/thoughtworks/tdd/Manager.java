@@ -11,7 +11,6 @@ public class Manager extends ParkingBoy{
         managementList.add(parkingBoys);
     }
 
-
     public List<ParkingBoy> getManagementList() {
         return managementList;
     }
