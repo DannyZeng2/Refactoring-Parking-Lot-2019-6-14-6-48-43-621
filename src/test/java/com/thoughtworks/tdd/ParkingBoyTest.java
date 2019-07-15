@@ -9,7 +9,7 @@ import java.util.List;
 public class ParkingBoyTest {
 
     @Test
-    public void should_park_a_car_return_get_a_ticket() {  //预估：5min 实际：6min
+    public void should_get_a_ticket_when_park_a_car() {  //预估：5min 实际：6min
         //Given
         Car car  = new Car();
 
@@ -22,7 +22,7 @@ public class ParkingBoyTest {
     }
 
     @Test
-    public void should_get_a_ticket_and_return_a_car() { //预估：5min 实际：5min
+    public void should_get_a_car_and_give_a_ticket() { //预估：5min 实际：5min
         //Given
         Car car = new Car();
         Ticket ticket = new Ticket(car);
@@ -31,12 +31,14 @@ public class ParkingBoyTest {
         ParkingLot parkingLot = new ParkingLot(2);
         parkingLot.addCar(car,ticket);
 
+        Car car1 = parkingBoy.fetchCar(ticket,parkingLot);
+
         //Then
-        Assertions.assertNotNull(parkingBoy.fetchCar(ticket,parkingLot));
+        Assertions.assertEquals(car,car1);
     }
 
     @Test
-    public void should_return_cars_with_correspond_ticket() { //预估：10min 实际：10min
+    public void should_return_cars_when_ticket_is_correspond() { //预估：10min 实际：10min
         //Given
         Car car1  = new Car();
         Car car2  = new Car();

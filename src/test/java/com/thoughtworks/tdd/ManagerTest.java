@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 
 public class ManagerTest {
     @Test
-    public void add_parking_boys_to_management_list() {  //预估：8min 实际：10min
+    public void should_add_parking_boys_to_management_list() {  //预估：8min 实际：10min
         //Given
         Manager manager = new Manager();
         ParkingLot parkingLot = new ParkingLot(manager,5);
@@ -23,7 +23,7 @@ public class ManagerTest {
     }
 
     @Test
-    public void should_specify_a_parking_boy_park_the_car () {  //预估：8min 实际：10min
+    public void should_specify_a_parking_boy_to_park_the_car () {  //预估：8min 实际：10min
         //Given
         Manager manager = new Manager();
         ParkingLot parkingLot = new ParkingLot(manager,5);
@@ -44,7 +44,7 @@ public class ManagerTest {
     }
 
     @Test
-    public void should_park_or_fetch_the_car_from_manager_own_parking_lots() {  //预估：8min 实际：10min
+    public void should_park_or_fetch_the_car_when_parking_lots_is_manager() {  //预估：8min 实际：10min
         //Given
         Car car = new Car();
         Manager manager = new Manager();
