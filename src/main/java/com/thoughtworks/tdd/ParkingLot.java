@@ -12,7 +12,6 @@ public class ParkingLot {
     private Map<Car,Ticket> cars = new HashMap();
     private int maxCapacity = 2;
     private String Message;
-    private List<ParkingBoy> parkingBoylist = new ArrayList<>();
 
     public ParkingLot(int maxCapacity) {
         this.maxCapacity = maxCapacity;
@@ -21,14 +20,6 @@ public class ParkingLot {
     public ParkingLot(Manager manager, int maxCapacity) {
         this.manager = manager;
         this.maxCapacity = maxCapacity;
-    }
-
-    public List<ParkingBoy> getParkingBoylist() {
-        return parkingBoylist;
-    }
-
-    public void setParkingBoylist(ParkingBoy parkingBoy) {
-        parkingBoylist.add(parkingBoy);
     }
 
     public int getMaxCapacity() {
